@@ -1,0 +1,76 @@
+<section class="">
+  <div class="container py-2 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img
+          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+          class="img-fluid"
+          alt="Moça segurando uma chave azul na frente de um celular gigante que possui uma fechadura."
+        />
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <h1 class="d-flex justify-content-center display-1">Login</h1>
+        <form (ngSubmit)="login()" #loginForm="ngForm">
+          <!-- Email input -->
+          <div class="form-outline mb-2">
+            <label class="form-label" for="username">Usuario</label>
+            <input
+              type="text"
+              id="username"
+              [(ngModel)]="usuario"
+              name="usuario"
+              class="form-control form-control-lg"
+            />
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-2">
+            <label class="form-label" for="password">Senha</label>
+            <input
+              type="password"
+              id="password"
+              [(ngModel)]="senha"
+              name="senha"
+              class="form-control form-control-lg"
+            />
+          </div>
+
+          <div class="d-flex justify-content-around align-items-center mb-2">
+            <!-- Checkbox -->
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="form1Example3"
+                checked
+              />
+              <label class="form-check-label" for="form1Example3">
+                Lembrar-me
+              </label>
+            </div>
+            <a href="#!">Esqueceu a senha?</a>
+          </div>
+
+          <!-- Submit button -->
+          <div class="d-flex justify-content-center mt-5">
+            <button type="submit" class="btn btn-primary btn-lg btn-block w-50">
+              Entrar
+            </button>
+          </div>
+          <!-- <div class="divider d-flex align-items-center my-4">
+            <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+          </div>
+
+          <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="#!"
+            role="button">
+            <i class="fab fa-facebook-f me-2"></i>Continue with Facebook
+          </a>
+          <a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee" href="#!"
+            role="button">
+            <i class="fab fa-twitter me-2"></i>Continue with Twitter</a> -->
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
