@@ -19,6 +19,11 @@ export class UsuarioService {
    }
 
 
+  retornaUsuario() {
+    return this.usuarioSubject.asObservable();
+}
+
+
 
   salvaToken(token: string){
   this.tokenService.salvaToken(token);

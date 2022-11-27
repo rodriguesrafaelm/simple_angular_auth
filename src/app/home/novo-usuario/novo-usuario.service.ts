@@ -17,4 +17,8 @@ export class NovoUsuarioService {
   }
 
 
+  consultarDisponibilidadeUsuario(userName: string){
+    return this.httpClient.post(this.url + '/user/get-user', {"username": userName})
+  }
+
 }

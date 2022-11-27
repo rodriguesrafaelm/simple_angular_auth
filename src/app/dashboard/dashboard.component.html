@@ -15,14 +15,14 @@
 </header>
 
 
-
+<div *ngIf="user$ | async as user">
+  <h1>Bem vindo {{ user.sub | uppercase}}</h1>
+</div>
 
 <h1 class="">This will be a dashboard</h1>
 <div class="d-flex mt-5 pr-5">
 <h4>This will be a menu</h4>
 <app-posts></app-posts>
 </div>
-
-
 
 <div>Em fase de construção, atualmente criando as rotas da API e ajustando a autenticação.</div>

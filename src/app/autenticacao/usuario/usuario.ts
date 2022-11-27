@@ -1,5 +1,6 @@
 export interface Usuario {
+  sub?: string;
   id?: number;
-  name?: string;
+  username?: string;
   email?: string
 }

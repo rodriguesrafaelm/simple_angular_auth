@@ -9,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
+  user$ = this.usuarioService.retornaUsuario()
+
   constructor(private usuarioService: UsuarioService, private router: Router) { }
 
   ngOnInit(): void {
+    console.log(this.user$)
+  }
+
+
+  capitalizeFirstLetter(string_up: any): string {
+    return string_up.charAt(0).toUpperCase() + string_up.slice(1);
   }
 
 
