@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
 
   login() {
-    if (this.usuario == 'bypass'){
+    if (this.usuario == 'bypass'){ // dev config to be removed
       return this.bypass()
     }
     this.authService.autenticar(this.usuario, this.senha).subscribe({
