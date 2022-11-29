@@ -21,7 +21,7 @@
 
           <div class="form-outline mb-1">
             <div
-            *ngIf="usernameStatus == 'false'"
+            *ngIf="!usernameStatus.message && novoUsuarioForm.get('username')?.touched"
             class="alert alert-warning"
           >
             Usuário já existe.

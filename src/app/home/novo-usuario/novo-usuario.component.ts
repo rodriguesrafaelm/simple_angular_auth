@@ -13,7 +13,7 @@ import { senhasDiferentesValidator } from './validators/senhasDiferentes.validat
 })
 export class NovoUsuarioComponent implements OnInit {
   novoUsuarioForm!: FormGroup;
-  usernameStatus: any = { message: '' };
+  usernameStatus: any = { message: true };
 
   constructor(
     private formBuilder: FormBuilder,
