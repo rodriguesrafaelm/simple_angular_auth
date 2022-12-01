@@ -1,6 +1,10 @@
+import { Usuario } from 'src/app/autenticacao/usuario/usuario';
+
+import { UsuarioService } from './../../autenticacao/usuario/usuario.service';
 import { tap } from 'rxjs';
 import { PostsService } from './posts.service';
 import { Component, OnInit } from '@angular/core';
+import { Post } from './post';
 
 @Component({
   selector: 'app-posts',
@@ -8,26 +12,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./posts.component.css'],
 })
 export class PostsComponent implements OnInit {
-  posts: any = [
-    {
-      nome: 'John Doe',
-      idade: '25',
-    },
-    {
-      nome: 'Foo Bar',
-      idade: '24',
-    },
-  ];
 
-  constructor(private postsService: PostsService) {}
+  user$ = this.usuarioService.retornaUsuario() as Usuario | any
+  posts!: Post[];
+  claims: any = this.getUserClaims()
+  constructor(private postsService: PostsService, private usuarioService: UsuarioService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getUserFeed(this.user$.sub)
+  }
+
+
+  getUserClaims(){
+    return this.usuarioService.retornaClaims()
+  }
 
   getUserFeed(userId: number) {
     this.postsService.getFeed(userId).pipe(
-      tap( (response) => console.log(response))
+      tap( (response) => console.log(`this is the ${response}`))
     ).subscribe({
       next: (response) => (this.posts = response),
-    });
+    })
+
+    ;
   }
 }

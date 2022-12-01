@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MensagensComponent } from './componentes/mensagens/mensagens.component';
+import { AutenticacaoModule } from './autenticacao/autenticacao.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,6 +14,7 @@ import { MensagensComponent } from './componentes/mensagens/mensagens.component'
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    AutenticacaoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

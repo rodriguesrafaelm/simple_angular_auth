@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
     this.toggleTab = !this.toggleTab
 
     this.toggleTab ? this.router.navigate(['home/novousuario']) : this.router.navigate(['home/login'])
-    this.toggleTab ? console.log("registro") : console.log('login')
   }
 
 

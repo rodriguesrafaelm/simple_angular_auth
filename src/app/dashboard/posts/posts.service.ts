@@ -2,6 +2,7 @@
 import { environment } from './../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Post } from './post';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,6 @@ export class PostsService {
   constructor(private httpClient: HttpClient) { }
 
   getFeed(userId: number){
-    return this.httpClient.get(this.url + "/user/posts/" + userId)
+    return this.httpClient.get<Array<Post>>(this.url + "/api/user/get-post/" + userId)
   }
 }
