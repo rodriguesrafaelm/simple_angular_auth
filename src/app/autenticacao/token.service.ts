@@ -10,7 +10,8 @@ export class TokenService {
 
   constructor(private router: Router) { }
 
-  retornaToken(){
+
+  retornaToken(): string{
     return localStorage.getItem(KEY) ?? '';
   }
 

@@ -1,4 +1,5 @@
-import { pipe, tap, map } from 'rxjs';
+import { UsuarioService } from './../../autenticacao/usuario/usuario.service';
+import { map } from 'rxjs';
 import { NovoUsuarioService } from './novo-usuario.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -18,7 +19,8 @@ export class NovoUsuarioComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private novoUsuarioService: NovoUsuarioService
+    private novoUsuarioService: NovoUsuarioService,
+    private usuarioService: UsuarioService
   ) {}
 
   ngOnInit(): void {
@@ -38,8 +40,11 @@ export class NovoUsuarioComponent implements OnInit {
   cadastrar() {
     if (this.novoUsuarioForm.valid) {
       const novoUsuario = this.novoUsuarioForm.getRawValue() as NovoUsuario;
-      this.novoUsuarioService.cadastrarNovoUsuario(novoUsuario).subscribe({
-        next: () => {
+      this.novoUsuarioService.cadastrarNovoUsuario(novoUsuario)
+      .subscribe({
+        next: (res) => {
+          const authToken = res.headers.get('x-access-token') ?? '';
+          this.usuarioService.salvaToken(authToken)
           this.router.navigate(['dashboard']);
         },
         error: (err) => console.log(err?.error?.errors),

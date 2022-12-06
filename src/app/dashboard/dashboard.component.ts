@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {}
 
+
   postar() {
     this.usuarioService.publicarPost(this.post).subscribe({
       next: () =>

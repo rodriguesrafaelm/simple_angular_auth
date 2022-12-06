@@ -33,19 +33,27 @@ export class UsuarioService {
   this.tokenService.salvaToken(token);
   this.decodificaJWT();
 }
+  private verificarExp(expFromClaims: string){
+    const time = Math.floor((new Date).getTime() / 1000)
+    const exp = parseInt(expFromClaims)
+    return time >= exp
+
+  }
 
   private decodificaJWT() {
     const token = this.tokenService.retornaToken();
-    const usuario = jwt_decode(token) as Usuario;
+    let usuario = jwt_decode(token) as Usuario;
+    if (this.verificarExp(usuario.exp ?? '')){
+      this.logout()
+    } else {
     this.usuarioSubject.next(usuario);
-}
+    }
+  }
+
 
   estaLogado(){
     return this.tokenService.possuiToken()
   }
-
-
-
 
   logout(){
     this.tokenService.excluiToken()

@@ -1,7 +1,8 @@
 import { environment } from './../../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NovoUsuario } from './novo-usuario';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,8 @@ export class NovoUsuarioService {
 
   constructor(private httpClient: HttpClient) { }
 
-  cadastrarNovoUsuario(novoUsuario: NovoUsuario) {
-    return this.httpClient.post(this.url + '/user/signup', novoUsuario)
+  cadastrarNovoUsuario(novoUsuario: NovoUsuario): Observable<HttpResponse<any>> {
+    return this.httpClient.post(this.url + '/user/signup', novoUsuario, { observe: 'response' })
   }
 
 
