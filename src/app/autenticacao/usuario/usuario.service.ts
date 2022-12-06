@@ -1,9 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 
 import { TokenService } from './../token.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import jwt_decode from 'jwt-decode'
 import { Usuario } from 'src/app/autenticacao/usuario/usuario';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -11,23 +13,17 @@ import { Usuario } from 'src/app/autenticacao/usuario/usuario';
 })
 export class UsuarioService {
 
+  url = environment.apiURL
+
 
   private usuarioSubject = new BehaviorSubject<Usuario>({})
 
-  constructor(private tokenService: TokenService) {
+  constructor(private tokenService: TokenService, private httpClient: HttpClient, ) {
     if(this.tokenService.possuiToken())
       this.decodificaJWT()
    }
 
 
-  retornaClaims(){
-    const token = this.tokenService.retornaToken()
-    try {
-      return jwt_decode(token)
-    } catch(error){
-      return null
-    }
-  }
 
   retornaUsuario() {
     return this.usuarioSubject.asObservable();
@@ -48,9 +44,16 @@ export class UsuarioService {
     return this.tokenService.possuiToken()
   }
 
+
+
+
   logout(){
     this.tokenService.excluiToken()
     this.usuarioSubject.next({})
+  }
+
+  publicarPost(post: any){
+    return this.httpClient.post(this.url + "/api/user/post", {post_data: post})
   }
 
 }

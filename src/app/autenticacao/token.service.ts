@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 
 const KEY = 'token'
@@ -7,7 +8,7 @@ const KEY = 'token'
 })
 export class TokenService {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   retornaToken(){
     return localStorage.getItem(KEY) ?? '';
@@ -23,6 +24,7 @@ export class TokenService {
 
   excluiToken(){
     localStorage.removeItem(KEY)
+
   }
 
 }

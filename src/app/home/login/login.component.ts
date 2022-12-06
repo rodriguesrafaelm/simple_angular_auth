@@ -18,17 +18,11 @@ export class LoginComponent implements OnInit {
 
 
   login() {
-    if (this.usuario == 'bypass'){ // dev config to be removed
-      return this.bypass()
-    }
     this.authService.autenticar(this.usuario, this.senha).subscribe({
       next: () => this.router.navigate(['dashboard']),
       error: () => {alert("Usuário ou senha inválidos(s)");}
   })}
 
-  bypass(){
-    this.router.navigate(['dashboard'])
-  }
 
 
 }

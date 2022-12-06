@@ -1,0 +1,10 @@
+body{
+  background:#eee;
+  }
+  #text {
+      resize: none;
+      margin-bottom:10px;
+  }
+.min-width{
+  min-width: 75vw
+}

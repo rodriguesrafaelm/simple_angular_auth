@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MensagensComponent } from './componentes/mensagens/mensagens.component';
 import { AutenticacaoModule } from './autenticacao/autenticacao.module';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, UserProfileComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

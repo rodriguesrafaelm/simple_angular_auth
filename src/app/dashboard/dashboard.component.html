@@ -1,30 +1,72 @@
-<header class="sticky-top">
-  <nav class="navbar navbar-light bg-white">
-    <a class="navbar-brand" >
-
-      SimpleAuth
-    </a>
-
-
-      <div>
-        <a (click)="logout()">Logout</a>
-      </div>
+<header class="sticky-top ">
+  <nav class="navbar navbar-light bg-secondary rounded ">
+    <a class="ms-2 navbar-brand text-light "> ByteSocial </a>
 
   </nav>
-
 </header>
+<div class="min-width">
+  <div class="row mt-5 text-center container-fluid">
+    <div class="col-sm-3">
+      <div class="d-flex justify-content-center">
+        <img
+          class="img-thumbnail rounded-circle border border-2 border-dark"
+          src="https://bootdey.com/img/Content/avatar/avatar6.png"
+          alt=""
+          height="150"
+          width="150"
+        />
+      </div>
+      <div class="d-flex justify-content-center">
+        <span *ngIf="user$ | async as user" class="fs-3 mt-2">{{user.username}}</span>
+      </div>
+    </div>
+    <div class="ms-2 col-sm-8 mt-5">
+      <form accept-charset="UTF-8" (ngSubmit)="postar()" #postForm="ngForm">
+        <textarea
+          class="form-control"
+          id="text"
+          [(ngModel)]="post"
+          name="post"
+          placeholder="Escreva algo aqui..."
+          rows="5"
+        ></textarea>
+
+        <div class="position-relative">
+          <button
+            button
+            class="btn btn-dark position-absolute end-0"
+            type="submit"
+          >
+            Publicar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 
 
-<div *ngIf="user$ | async as user">
-  <h1>Bem vindo {{ user.sub | uppercase}}</h1>
+  <div class="d-flex mt-5">
+
+    <div class="col-sm-3">
+      <nav class="bg-light">
+        <div class="d-none d-sm-block">
+          <div class="bg-white d-flex flex-column pt-2 gap-2 w-75 container">
+            <button [routerLink]="['posts']" class="btn btn-light fs-4 rounded-pill">Home</button>
+            <button [routerLink]="['friends']" class="btn btn-light fs-4 rounded-pill">Amigos</button>
+            <button onclick="location.href='https://github.com/rodriguesrafaelm/simple_angular_auth'"  class="btn btn-light fs-4 rounded-pill">Ajuda</button>
+            <button (click)="menuFixo.logout()" class="btn btn-light fs-4 rounded-pill mb-2">Sair</button>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="col-sm-7">
+    <router-outlet ></router-outlet>
+    </div>
+    <div class="col-sm-2 d-none d-xl-block">
+    Will be something-----------
+    </div>
+  </div>
 </div>
-
-<h1 class="">This will be a dashboard</h1>
-<div class="d-flex mt-5 pr-5">
-<h4>This will be a menu</h4>
-<app-posts></app-posts>
+<div class="mt-5">
+<app-menu-fixo #menuFixo></app-menu-fixo>
 </div>
-
-<div>Em fase de construção, atualmente criando as rotas da API e ajustando a autenticação.</div>
-
-

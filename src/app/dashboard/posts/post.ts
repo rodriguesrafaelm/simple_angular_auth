@@ -3,3 +3,9 @@ export interface Post {
   title: string,
   content: string
 }
+
+export interface PostData {
+  email: string
+  username: string
+  posts: Array<Post>
+}

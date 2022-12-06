@@ -1,0 +1,14 @@
+<nav class="fixed-bottom col-12 d-flex justify-content-around d-block d-sm-none bg-secondary pb-3 pt-3">
+  <a [routerLink]="['posts']" href="">
+    <img src="assets/img/house.svg" height="26px" width="26px">
+  </a>
+  <a [routerLink]="['friends']" href="">
+    <img src="assets/img/people.svg" height="26px" width="26px">
+  </a>
+  <a href="https://github.com/rodriguesrafaelm/simple_angular_auth" target="_blank">
+    <img src="assets/img/question.svg" height="26px" width="26px">
+  </a>
+  <a (click)="logout()" href="">
+    <img src="assets/img/box-arrow-right.svg" alt="" height="26px" width="26px">
+  </a>
+</nav>
