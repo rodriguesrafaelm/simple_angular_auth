@@ -1,4 +1,9 @@
+import { UserProfileService } from './user-profile.service';
+
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PostData } from '../dashboard/posts/post'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,9 +12,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+  userName!: string
+  postData!: Observable<PostData>;
+  constructor(private userProfileService: UserProfileService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.userName = this.activatedRoute.snapshot.params['userName']
+    this.loadProfile()
+  }
+
+
+  loadProfile(){
+    this.postData = this.userProfileService.getFeedByUsername(this.userName)
   }
 
 }

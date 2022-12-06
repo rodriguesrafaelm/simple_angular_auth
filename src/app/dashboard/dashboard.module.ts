@@ -21,6 +21,7 @@ import { FriendsComponent } from './friends/friends.component';
     DashboardRoutingModule,
     FormsModule
 
-  ]
+  ],
+  exports: [MenuFixoComponent]
 })
 export class DashboardModule { }

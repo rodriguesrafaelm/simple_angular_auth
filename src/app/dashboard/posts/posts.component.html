@@ -1,25 +1,25 @@
 <div class="mt-2 mb-2 ms-2">
-<div *ngFor="let elem of posts?.posts" class="card">
+<div *ngFor="let post of postData?.posts" class="card">
   <div class="card-body bg-light">
   <div class="d-flex align-items-center">
     <img
       class="img-thumbnail rounded-circle"
-      src="https://bootdey.com/img/Content/avatar/avatar6.png"
+      src="https://www.w3schools.com/howto/img_avatar2.png"
       alt=""
       height="50"
       width="50"
     />
     <div class="">
       <div>
-        <span>{{ posts.username }}</span>
-        <p class="tx-10 text-muted">1 min ago</p>
+        <span><div class="fs-5"><a class="text-decoration-none text-dark" routerLink='/user/{{postData.username}}'>{{ postData.username }}</a></div></span>
+        <p class="tx-10 text-muted">{{post.inserted_at | date:'short':'-0600'}}</p>
       </div>
 
     </div>
 
   </div>
   <div>
-    <span>{{ elem.content }}</span>
+    <span>{{ post.content }}</span>
   </div>
   </div>
 </div>

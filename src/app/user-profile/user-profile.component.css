@@ -1,0 +1,13 @@
+body{
+  background:#eee;
+  }
+  #text {
+      resize: none;
+      margin-bottom:10px;
+  }
+.min-width-80{
+  min-width: 80vw
+}
+.min-height-12vw{
+  min-height: 12vw;
+}

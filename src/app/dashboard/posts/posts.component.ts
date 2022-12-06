@@ -14,7 +14,7 @@ import { Post, PostData } from './post';
 export class PostsComponent implements OnInit {
 
   user!: Usuario;
-  posts!: PostData;
+  postData!: PostData;
   constructor(private postsService: PostsService, private usuarioService: UsuarioService) {}
 
   ngOnInit(): void {
@@ -34,7 +34,7 @@ export class PostsComponent implements OnInit {
     this.postsService.getFeed(userId).pipe(
       tap( (response) => console.log(`this is the ${response}`))
     ).subscribe({
-      next: (response) => (this.posts = response),
+      next: (response) => (this.postData = response),
     })
 
     ;

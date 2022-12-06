@@ -1,3 +1,4 @@
+import { UserProfileComponent } from './user-profile/user-profile.component';
 import { LoginGuard } from './autenticacao/login.guard';
 import { AutenticacaoGuard } from './autenticacao/autenticacao.guard';
 import { NgModule } from '@angular/core';
@@ -17,9 +18,9 @@ const routes: Routes = [
     canLoad: [AutenticacaoGuard]
   },
   {
-    path: 'user-profile',
+    path: 'user/:userName',
     loadChildren: () =>
-      import('./user-profile/user-profile.module').then((m) => m.UserProfileModule)
+      import('./user-profile/user-profile.module').then((m) => m.UserProfileModule),
   }
 ];
 

@@ -5,6 +5,6 @@ body{
       resize: none;
       margin-bottom:10px;
   }
-.min-width{
-  min-width: 75vw
+.min-width-80{
+  min-width: 80vw
 }
