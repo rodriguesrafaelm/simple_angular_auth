@@ -31,9 +31,7 @@ export class PostsComponent implements OnInit {
   }
 
   getUserFeed(userId: string) {
-    this.postsService.getFeed(userId).pipe(
-      tap( (response) => console.log(`this is the ${response}`))
-    ).subscribe({
+    this.postsService.getFeed(userId).subscribe({
       next: (response) => (this.postData = response),
     })
 

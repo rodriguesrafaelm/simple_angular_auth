@@ -47,7 +47,7 @@ export class NovoUsuarioComponent implements OnInit {
           this.usuarioService.salvaToken(authToken)
           this.router.navigate(['dashboard']);
         },
-        error: (err) => console.log(err?.error?.errors),
+        error: (err) => console.log("Ocorreu um erro."),
       });
     }
   }
