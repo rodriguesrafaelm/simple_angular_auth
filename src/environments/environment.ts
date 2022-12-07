@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiURL: 'angular-auth.fly.dev'
+  apiURL: 'https://angular-auth.fly.dev'
 };
 
 /*
