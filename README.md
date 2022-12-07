@@ -9,4 +9,12 @@ Link do repositório da API: <a href="https://github.com/rodriguesrafaelm/simple
 <br><br>
 Prévia do website: <a href="https://rodriguesrafaelm.github.io/simple_angular_auth/dashboard/posts">Link</a>
 <br><br><br>
-Aceito qualquer tipo de feedback, na verdade seria de grande ajuda e eu agradeceria muito.
+
+Tenho aprendido muita coisa nova com esse projeto, além de não estar seguindo nenhum tutorial e infelizmente não conhecer muitas pessoas que entendam do que estou fazendo nesse projeto. É bem possível ter alguns problemas.
+
+#### Aceito qualquer tipo de feedback, na verdade seria de grande ajuda e eu agradeceria muito.
+#### Estou sempre no <a href="https://www.linkedin.com/in/rafael-m-rodrigues/">LinkedIn</a>
+\
+\
+\
+![image](https://user-images.githubusercontent.com/79672000/206320028-be56391f-a4dc-4e47-b429-baac623e4db8.png)
